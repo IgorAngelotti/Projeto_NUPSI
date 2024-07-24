@@ -11,14 +11,14 @@
     <header id="header">
         <nav class="navbar navbar-expand-lg bg-primary border-bottom border-body fixed-top" data-bs-theme="dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="assets/logo_nupsi-removebg-preview.png" alt="logo nupsi" id="logo-navbar"></a>
+            <a class="navbar-brand" href="index.html"><img src="assets/logo_nupsi-removebg-preview.png" alt="logo nupsi" id="logo-navbar"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="true" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse collapse" id="navbarColor01">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                <a class="nav-link active text-dark" aria-current="page" href="#">Home</a>
+                <a class="nav-link active text-dark" onclick="scrollToTop()" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link text-dark" href="#h3-projetos">Projetos</a>
@@ -98,7 +98,7 @@
                     <li class="list-group-item">MySQL</li>
                   </ul>
                   <div class="card-body">
-                    <a href="https://github.com/UEMGNUPSI/SistemaSolicitacoesSecretaria" target="_blank" class="card-link">Link</a>
+                    <a href="https://github.com/UEMGNUPSI/SistemaSolicitacoesSecretaria" target="_blank" class="card-link">Acesse aqui</a>
                   </div>
               </div>
               <div class="card" style="width: 18rem;">
@@ -113,7 +113,7 @@
                       <li class="list-group-item">MySQL</li>
                   </ul>
                   <div class="card-body">
-                    <a href="https://github.com/UEMGNUPSI/Cadastro-TCC/tree/master" class="card-link" target="_blank">Link</a>
+                    <a href="https://github.com/UEMGNUPSI/Cadastro-TCC/tree/master" class="card-link" target="_blank">Acesse aqui</a>
                   </div>
               </div>
               <div class="card" style="width: 18rem;">
@@ -128,7 +128,7 @@
                     <li class="list-group-item">MySQL</li>
                   </ul>
                   <div class="card-body">
-                    <a href="https://github.com/UEMGNUPSI/Patrimonio/tree/master" target="_blank" class="card-link">Link</a>
+                    <a href="https://github.com/UEMGNUPSI/Patrimonio/tree/master" target="_blank" class="card-link">Acesse aqui</a>
           
                   </div>
               </div>
@@ -145,8 +145,7 @@
                     <li class="list-group-item">MySQL</li>
                   </ul>
                   <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
+                    <a href="https://github.com/UEMGNUPSI/UemgEventos"  target="_blank" class="card-link">Acesse aqui</a>
                   </div>
               </div>
             </div>
@@ -163,7 +162,14 @@
     <script>
       const navbarLinks = document.querySelectorAll('.nav-link');
       const navbarCollapse = document.querySelector('.navbar-collapse');
-      
+      function scrollToTop(){
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+          });
+      }
+
+
       document.addEventListener('DOMContentLoaded', function() {
         if (window.innerWidth < 992) {
             navbarCollapse.classList.remove('show');

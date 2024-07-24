@@ -26,6 +26,24 @@ main{
 
 .card{
     padding: 0px;
+
+    & .card-body{
+
+        & a{
+            background-color: #6c9eea;
+            padding: 10px;
+            border-radius: 2px;
+            text-decoration: none;
+            font-weight: bolder;
+            color: white;
+            transition: 0.1s;
+        }
+
+        & a:hover{
+            background-color: #0d6efd;
+            
+        }
+    }
 }
 
 .row{
