@@ -35,8 +35,14 @@ header{
     
 }
 
+.carousel-inner img {
+    height: 650px; /* ajuste a altura desejada */
+    object-fit: cover;
+    width: 100%;
+  }
+
 #carousel-1{
-    margin-top: 70px;
+    margin-top: 80cccpx;
 }
 
 main{
@@ -97,4 +103,10 @@ main{
             scale: 1.01;
         }
     }
+
+    .carousel-inner img {
+        height: auto; /* ajuste a altura desejada */
+        object-fit: cover;
+        width: 100%;
+      }
 }
