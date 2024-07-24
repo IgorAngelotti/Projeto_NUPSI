@@ -7,10 +7,30 @@
 header{
    
     font-weight: bolder;
-
     & #logo-navbar{
         width: 60px;
         height: 60px;
+    }
+
+    & li{
+        margin-right: 5px;
+    }
+
+    & .nav-link{
+        padding: 10px;
+        transition: scale 0.1s;
+        border-radius: 2px;
+    }
+
+    & .nav-link:focus{
+        outline: 1px solid black;
+        background-color: rgba(241, 241, 241, 0.504);
+    }
+
+    & .nav-link:hover{
+        background-color: rgba(241, 241, 241, 0.504);
+       
+        scale: 1.1;
     }
     
 }
@@ -70,5 +90,11 @@ main{
         align-items: center;
         justify-content: center;
         margin: 0px;
+    }
+
+    header{
+        & .nav-link:hover{
+            scale: 1.01;
+        }
     }
 }
