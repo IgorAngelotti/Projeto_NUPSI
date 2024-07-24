@@ -8,20 +8,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <header id="header">
         <nav class="navbar navbar-expand-lg bg-primary border-bottom border-body fixed-top" data-bs-theme="dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="assets/logo_nupsi-removebg-preview.png" alt="logo nupsi" id="logo-navbar"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="true" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="navbar-collapse collapse show" id="navbarColor01">
+            <div class="navbar-collapse collapse" id="navbarColor01">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                 <a class="nav-link active text-dark" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link text-dark" href="#">Features</a>
+                <a class="nav-link text-dark" href="#h3-projetos">Projetos</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link text-dark" href="#">Pricing</a>
@@ -38,6 +38,8 @@
         </div>
         </nav>
     </header>
+
+
     <section id="carousel-1" class="mb-4">
         <div id="carouselExampleDark" class="carousel slide">
             <div class="carousel-indicators">
@@ -78,75 +80,75 @@
             </button>
         </div>
     </section>
+
+
     <main>
         <div id="cards-teste " class="container mb-4">
-            <h3>Projetos do NUPSI</h3>
-            <div class="row gap-4">
-                <div class="card" style="width: 18rem;">
-                    <img src="assets/nupsi3.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Solicitações Secretaria</h5>
-                      <p class="card-text">Sistema para controle e envio de solicitações de alunos (Ex: trancamento, troca de turno) para a secretaria da UEMG - Frutal.</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                      <li class="list-group-item">HTML, CSS, Bootstrap</li>
-                      <li class="list-group-item">JavaScript, PHP</li>
-                      <li class="list-group-item">MySQL</li>
-                    </ul>
-                    <div class="card-body">
-                      <a href="https://github.com/UEMGNUPSI/SistemaSolicitacoesSecretaria" target="_blank" class="card-link">Link</a>
-                    </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <img src="assets/cadastro-tcc.png" style="height: 170px; width: 170px; margin: auto;" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Cadastro-TCC</h5>
-                      <p class="card-text">Programa utilizado para cadastro e consulta de TCCs entregues na Universidade do Estado de Minas Gerais, unidade Frutal.</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">HTML</li>
-                        <li class="list-group-item">Java</li>
-                        <li class="list-group-item">MySQL</li>
-                    </ul>
-                    <div class="card-body">
-                      <a href="https://github.com/UEMGNUPSI/Cadastro-TCC/tree/master" class="card-link" target="_blank">Link</a>
-                    </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <img src="assets/patrimonio.png" style="height: 170px; width: 170px; margin: auto;" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Patrimônio</h5>
-                      <p class="card-text">Software para gerenciamento de patrimonio.</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">HMTL</li>
+          <h3 id="h3-projetos">Projetos do NUPSI</h3>
+          <div class="row gap-4">
+              <div class="card" style="width: 18rem;">
+                  <img src="assets/nupsi3.jpeg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Solicitações Secretaria</h5>
+                    <p class="card-text">Sistema para controle e envio de solicitações de alunos (Ex: trancamento, troca de turno) para a secretaria da UEMG - Frutal.</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">HTML, CSS, Bootstrap</li>
+                    <li class="list-group-item">JavaScript, PHP</li>
+                    <li class="list-group-item">MySQL</li>
+                  </ul>
+                  <div class="card-body">
+                    <a href="https://github.com/UEMGNUPSI/SistemaSolicitacoesSecretaria" target="_blank" class="card-link">Link</a>
+                  </div>
+              </div>
+              <div class="card" style="width: 18rem;">
+                  <img src="assets/cadastro-tcc.png" style="height: 170px; width: 170px; margin: auto;" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Cadastro-TCC</h5>
+                    <p class="card-text">Programa utilizado para cadastro e consulta de TCCs entregues na Universidade do Estado de Minas Gerais, unidade Frutal.</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                      <li class="list-group-item">HTML</li>
                       <li class="list-group-item">Java</li>
                       <li class="list-group-item">MySQL</li>
-                    </ul>
-                    <div class="card-body">
-                      <a href="https://github.com/UEMGNUPSI/Patrimonio/tree/master" target="_blank" class="card-link">Link</a>
-            
-                    </div>
-                </div>
+                  </ul>
+                  <div class="card-body">
+                    <a href="https://github.com/UEMGNUPSI/Cadastro-TCC/tree/master" class="card-link" target="_blank">Link</a>
+                  </div>
+              </div>
+              <div class="card" style="width: 18rem;">
+                  <img src="assets/patrimonio.png" style="height: 170px; width: 170px; margin: auto;" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Patrimônio</h5>
+                    <p class="card-text">Software para gerenciamento de patrimonio.</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                      <li class="list-group-item">HMTL</li>
+                    <li class="list-group-item">Java</li>
+                    <li class="list-group-item">MySQL</li>
+                  </ul>
+                  <div class="card-body">
+                    <a href="https://github.com/UEMGNUPSI/Patrimonio/tree/master" target="_blank" class="card-link">Link</a>
+          
+                  </div>
+              </div>
 
-                <div class="card" style="width: 18rem;">
-                    <img src="assets/eventos.png" style="height: 170px; width: 170px; margin: auto;" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">UEMG Eventos</h5>
-                      <p class="card-text">Sistema de Eventos da UEMG.</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                      <li class="list-group-item">HTML, CSS, Bootstrap</li>
-                      <li class="list-group-item">JavaScript, PHP</li>
-                      <li class="list-group-item">MySQL</li>
-                    </ul>
-                    <div class="card-body">
-                      <a href="#" class="card-link">Card link</a>
-                      <a href="#" class="card-link">Another link</a>
-                    </div>
-                </div>
-
-                
+              <div class="card" style="width: 18rem;">
+                  <img src="assets/eventos.png" style="height: 170px; width: 170px; margin: auto;" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">UEMG Eventos</h5>
+                    <p class="card-text">Sistema de Eventos da UEMG.</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">HTML, CSS, Bootstrap</li>
+                    <li class="list-group-item">JavaScript, PHP</li>
+                    <li class="list-group-item">MySQL</li>
+                  </ul>
+                  <div class="card-body">
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                  </div>
+              </div>
             </div>
         </div>
     </main>
@@ -157,5 +159,42 @@
   
     <script src="script/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script>
+      const navbarLinks = document.querySelectorAll('.nav-link');
+      const navbarCollapse = document.querySelector('.navbar-collapse');
+      
+      document.addEventListener('DOMContentLoaded', function() {
+        if (window.innerWidth < 992) {
+            navbarCollapse.classList.remove('show');
+      }else{
+            navbarCollapse.classList.add('show');
+      }
+
+      })
+
+      navbarLinks.forEach((link) => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const href = link.getAttribute('href');
+          const target = document.querySelector(href);
+          const headerHeight = document.querySelector('#header').offsetHeight;
+          const offset = target.offsetTop - 100;
+          console.log(href)
+          console.log(target)
+          console.log(headerHeight)
+          console.log(offset)
+
+          window.scrollTo({
+            top: offset,
+            behavior: 'smooth',
+          });
+
+          if (window.innerWidth < 992) {
+            navbarCollapse.classList.remove('show');
+          }
+        });
+      });
+    </script>
 </body>
 </html>

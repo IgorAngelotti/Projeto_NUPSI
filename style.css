@@ -1,25 +1,56 @@
 
+*{
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 header{
+   
     font-weight: bolder;
-    
+
     & #logo-navbar{
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
     }
     
 }
 
+#carousel-1{
+    margin-top: 70px;
+}
 
 main{
     max-width: 1500px;
     margin: auto;
 }
 
-
-#cards-teste{
-    
-}
-
 .card{
     padding: 0px;
+}
+
+.row{
+    margin: auto;
+}
+
+#h3-projetos{
+    
+    padding: 5px;
+    border-radius: 5px;
+  
+}
+
+
+@media screen and (max-width: 767px){
+    
+    #h3-projetos{
+        text-align: center;
+    }
+
+
+    .row{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0px;
+    }
 }
