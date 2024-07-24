@@ -5,7 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header id="header">
@@ -39,52 +46,72 @@
         </nav>
     </header>
 
-
     <section id="carousel-1" class="mb-4">
         <div id="carouselExampleDark" class="carousel slide">
             <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
             </div>
             <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="10000">
-                <img src="assets/nupsi2.jpeg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                <h5>First slide label</h5>
-                <p>Some representative placeholder content for the first slide.</p>
+            <div class="carousel-item active animate__animated animate__fadeIn" data-bs-interval="10000">
+                <img src="assets/nupsi4.jpeg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block ">
+                  <h5>NUPSI</h5>
+                  <p>Núcleo de Práticas em Sistemas de Informação</p>
                 </div>
             </div>
-            <div class="carousel-item" data-bs-interval="2000">
-                <img src="assets/nupsi4.jpeg"  class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                <h5>Second slide label</h5>
-                <p>Some representative placeholder content for the second slide.</p>
-                </div>
-            </div>
+            
             <div class="carousel-item">
-                <img src="assets/nupsi5.jpeg" class="d-block w-100" alt="...">
+                <img src="assets/pessoas.jpeg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                <h5>Third slide label</h5>
-                <p>Some representative placeholder content for the third slide.</p>
+                  <h5>Alunos</h5>
+                  <p>Participantes e ex-participantes do NUPSI</p>
                 </div>
             </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-            </button>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+          </button>
         </div>
     </section>
 
 
-    <main>
+    <main class="animate__animated animate__fadeInUp">
+
+      <section class="secoes">
+        <HR></HR>
+        <div id="sobre"> <!-- class="animate__animated animate__fadeInUp" -->
+          <h3 class="h3">Sobre</h3>
+          <div class="sobre-area">
+            <div class="sobre-texto">
+              <p>Este projeto pedagógico prevê um Projeto de Ensino que envolve a manutenção de um Núcleo de
+                Prática em Sistemas de Informação. Os objetivos deste núcleo são: complementar a formação do estudante
+                e contribuir para o desenvolvimento das competências e habilidades esperadas. Todas as atividades
+                desenvolvidas no núcleo são integradas ao currículo do estudante como formação complementar. As
+                principais atividades que serão desenvolvidas no núcleo compreendem a gestão, análise, projeto,
+                desenvolvimento e implantação de sistemas de informação, com enfoque na experimentação de técnicas,
+                processos, modelos, entre outros.</p>
+                <p>Os resultados esperados incluem software e outras soluções com base em TI para atender às
+                  demandas internas e da comunidade, material de ensino, e publicações científicas sobre experimentos e
+                  estudos de caso desenvolvidos</p>
+                <p>O NUPSI deve ser coordenado por um docente, o qual será responsável por garantir o seu
+                  funcionamento, apontar questões a resolver, e dividir hierarquicamente os estudantes participantes. São
+                  elegíveis para participar do Núcleo os estudantes que atenderem aos seguintes requisitos: ter bom
+                  desempenho acadêmico e ter disponibilidade para trabalhar nas atividades propostas.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="secoes">
+        <HR></HR>
         <div id="cards-teste " class="container mb-4">
-          <h3 id="h3-projetos">Projetos do NUPSI</h3>
+          <h3 class="h3">Projetos do NUPSI</h3>
           <div class="row gap-4">
               <div class="card" style="width: 18rem;">
                   <img src="assets/nupsi3.jpeg" class="card-img-top" alt="...">
@@ -129,10 +156,9 @@
                   </ul>
                   <div class="card-body">
                     <a href="https://github.com/UEMGNUPSI/Patrimonio/tree/master" target="_blank" class="card-link">Acesse aqui</a>
-          
+    
                   </div>
               </div>
-
               <div class="card" style="width: 18rem;">
                   <img src="assets/eventos.png" style="height: 170px; width: 170px; margin: auto;" class="card-img-top" alt="...">
                   <div class="card-body">
@@ -150,15 +176,41 @@
               </div>
             </div>
         </div>
+    </section>
+
+    <section class="secoes">
+      <HR></HR>
+      <div id="video">
+        <h3 class="h3">Conheça o NUPSI</h3>
+        <iframe width="100%" height="500px"  src="https://www.youtube.com/embed/mWZ9jlheimI?si=ZER6G7QivMFXkano"
+         title="YouTube video player"
+         frameborder="0" 
+         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+         referrerpolicy="strict-origin-when-cross-origin" 
+         allowfullscreen></iframe>
+      </div>
+    </section>
+
     </main>
 
-
     <footer>
+      <div class="footer-content">
+        <div class="">
+          <h3>NUPSI</h3>
+          <p>Av. ESCÓCIA, 1001 - Cidade das Águas, Frutal - MG, 38202-436</p>
+          <p><b>Telefone: </b>(99) 99999-9999</p>
+          <p><b>Email: </b>testesteste.gmail.com</p>
+        </div>
+        <div class="">
+          <h3><b>Links úteis:</b></h3>
+
+        </div>
+        <div class="">lorem</div>
+      </div>
     </footer>
   
     <script src="script/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
     <script>
       const navbarLinks = document.querySelectorAll('.nav-link');
       const navbarCollapse = document.querySelector('.navbar-collapse');

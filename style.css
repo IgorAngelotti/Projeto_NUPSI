@@ -1,11 +1,15 @@
 
 *{
     padding: 0px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Roboto Slab", serif;
 }
 
 header{
-   
+
+    & .container-fluid{
+        padding: 0px 10px;
+    }
+
     font-weight: bolder;
     & #logo-navbar{
         width: 60px;
@@ -42,12 +46,16 @@ header{
   }
 
 #carousel-1{
-    margin-top: 80cccpx;
+    margin: 80px auto 60px auto;
 }
 
 main{
+    padding: 30px;
+}
+
+.secoes{
     max-width: 1500px;
-    margin: auto;
+    margin: 0px auto 60px auto;
 }
 
 .card{
@@ -76,20 +84,80 @@ main{
     margin: auto;
 }
 
-#h3-projetos{
-    
-    padding: 5px;
+.h3{
     border-radius: 5px;
-  
+    font-size: 2.2rem;
+    color: #0663ee;
+    font-weight: bolder;
 }
 
 
+
+.sobre-area{
+    background: url(assets/nupsi5.jpeg);
+    background-repeat: no-repeat;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    
+
+}
+
+
+.sobre-texto{
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1.5rem;
+    text-indent: 20px;
+    max-height: 100%;
+    
+}
+
+#video{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+footer{
+    background-color: #0663ee;
+    height: auto;
+    padding: 40px 20px;
+    color: white;
+}
+
+footer h3{
+    margin-bottom: 30px;
+}
+
+
+
+.footer-content{
+    max-width: 1500px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: -30px;
+    flex-wrap: wrap;
+
+}
+
+.container-fluid, .col{
+    padding: 0px;
+}
+
 @media screen and (max-width: 767px){
     
-    #h3-projetos{
+    .h3{
         text-align: center;
+        font-size: 1.8rem;
     }
 
+    .sobre-texto{
+        font-size: 1rem;
+    }
 
     .row{
         display: flex;
@@ -109,4 +177,6 @@ main{
         object-fit: cover;
         width: 100%;
       }
+
+     
 }
