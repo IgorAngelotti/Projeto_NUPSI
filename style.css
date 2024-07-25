@@ -96,6 +96,8 @@ main{
 .sobre-area{
     background: url(assets/nupsi5.jpeg);
     background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     padding: 10px;
     color: white;
     border-radius: 10px;
@@ -111,6 +113,7 @@ main{
     font-size: 1.5rem;
     text-indent: 20px;
     max-height: 100%;
+    
     
 }
 
