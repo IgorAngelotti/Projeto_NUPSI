@@ -41,7 +41,7 @@ header{
 }
 
 .carousel-inner img {
-    height: 650px; /* ajuste a altura desejada */
+    height: 650px; 
     object-fit: cover;
     width: 100%;
   }
@@ -230,7 +230,8 @@ footer h3{
 }
 
 @media screen and (max-width: 767px){
-    
+
+
     .h3{
         text-align: center;
         font-size: 1.8rem;
@@ -254,7 +255,7 @@ footer h3{
     }
 
     .carousel-inner img {
-        height: auto; /* ajuste a altura desejada */
+        height: 400px; 
         object-fit: cover;
         width: 100%;
       }
