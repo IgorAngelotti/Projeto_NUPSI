@@ -17,25 +17,25 @@
 </head>
 <body>
     <header id="header">
-        <nav class="navbar navbar-expand-lg bg-primary border-bottom border-body fixed-top" data-bs-theme="dark">
+        <nav class="navbar navbar-expand-lg border-bottom border-body fixed-top" data-bs-theme="dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html"><img src="assets/logo_nupsi-removebg-preview.png" alt="logo nupsi" id="logo-navbar"></a>
+            <a class="navbar-brand" href="index.html"><img src="assets/logoBranca.png" alt="logo nupsi" id="logo-navbar"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="true" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse collapse" id="navbarColor01">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                <a class="nav-link text-dark" onclick="scrollToTop()" aria-current="page" href="#">Home</a>
+                <a class="nav-link" onclick="scrollToTop()" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-dark" href="#sobre">Sobre</a>
+                  <a class="nav-link" href="#sobre">Sobre</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-dark" href="#h3-projetos">Projetos</a>
+                  <a class="nav-link " href="#h3-projetos">Projetos</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link text-dark" href="#o-nupsi">O NUPSI</a>
+                <a class="nav-link" href="#o-nupsi">O NUPSI</a>
                 </li>
             </ul>
             <form class="d-flex" role="search">
@@ -48,13 +48,13 @@
     </header>
 
     <section id="carousel-1" class="mb-4">
-        <div id="carouselExampleDark" class="carousel slide">
+        <div id="carouselExampleDark" class="carousel slide carousel-fade" data-bs-touch="true">
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
               <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
             </div>
             <div class="carousel-inner">
-            <div class="carousel-item active animate__animated animate__fadeIn" data-bs-interval="10000">
+            <div class="carousel-item active">
                 <img src="assets/nupsi4.jpeg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block ">
                   <h5>NUPSI</h5>
@@ -62,7 +62,7 @@
                 </div>
             </div>
             
-            <div class="carousel-item animate__animated animate__fadeIn">
+            <div class="carousel-item"> <!-- animate__animated animate__fadeIn -->
                 <img src="assets/pessoas3.jpeg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                   <h5>Comunidade</h5>
