@@ -17,7 +17,7 @@ header{
     }
 
     & li{
-        margin-right: 5px;
+        margin-right: 7px;
     }
 
     & .nav-link{
@@ -57,6 +57,7 @@ main{
 .secoes{
     max-width: 1300px;
     margin: 0px auto 60px auto;
+    padding: 10px;
 }
 
 .card{
@@ -99,7 +100,7 @@ main{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    padding: 10px;
+    
     color: white;
     border-radius: 10px;
     
@@ -122,11 +123,60 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    
 }
 
 #video iframe{
     border-radius: 10px;
+}
+
+#section-pessoas{
+    & #h3-pessoas{
+       text-align: center; 
+    }
+}
+
+#pessoas{
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 40px;
+   
+    & a{
+        text-decoration: none;
+        color: black;
+    }
+
+
+    & #pessoas-texto{
+        border-bottom: 3px solid black;
+        border-top: 3px solid black;
+        max-width: 500px;
+        text-align: center; 
+        padding: 20px;
+        
+    
+    }
+    
+    & p{
+        font-size: 1.5rem;
+        transition: 0.15s;
+        margin: 0px;
+    }
+
+    & #pessoas-texto:hover > p{
+        scale: 1.05;
+        cursor: pointer;
+        border-radius:5px;
+    }
+
+
+    & img{
+        width: 600px;
+        height: 300px;
+        border-radius: 10px;
+    }
 }
 
 footer{
@@ -162,6 +212,19 @@ footer h3{
     padding: 0px;
 }
 
+@media screen and (max-width: 991px){
+    header{
+        
+        & .container-fluid{
+            padding: 0px 20px;
+        }
+
+        & .nav-link:hover{
+            scale: 1.02;
+        }
+    }
+}
+
 @media screen and (max-width: 767px){
     
     .h3{
@@ -182,7 +245,7 @@ footer h3{
 
     header{
         & .nav-link:hover{
-            scale: 1.01;
+            scale: 1.02;
         }
     }
 
@@ -190,6 +253,16 @@ footer h3{
         height: auto; /* ajuste a altura desejada */
         object-fit: cover;
         width: 100%;
+      }
+
+      
+      #pessoas{
+        gap: 20px;
+
+        & img{
+            width: 100%;
+            height: 100%;
+        }
       }
 
       .footer-content{

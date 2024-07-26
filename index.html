@@ -28,13 +28,13 @@
                 <a class="nav-link text-dark" onclick="scrollToTop()" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link text-dark" href="#h3-projetos">Projetos</a>
+                  <a class="nav-link text-dark" href="#sobre">Sobre</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link text-dark" href="#">Pricing</a>
+                  <a class="nav-link text-dark" href="#h3-projetos">Projetos</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link text-dark" href="#">About</a>
+                <a class="nav-link text-dark" href="#o-nupsi">O NUPSI</a>
                 </li>
             </ul>
             <form class="d-flex" role="search">
@@ -85,7 +85,7 @@
 
       <section class="secoes">
         <HR></HR>
-        <h3 class="h3">Sobre</h3>
+        <h3 class="h3" id="sobre">Sobre</h3>
         <div class="sobre-area"> <!-- class="animate__animated animate__fadeInUp" -->
           <div class="sobre-texto">
             <p>Este projeto pedagógico prevê um Projeto de Ensino que envolve a manutenção de um Núcleo de
@@ -110,7 +110,7 @@
       <section class="secoes">
         <HR></HR>
         <div id="cards-teste " class="container mb-4">
-          <h3 class="h3">Projetos do NUPSI</h3>
+          <h3 class="h3" id="h3-projetos">Projetos do NUPSI</h3>
           <div class="row gap-4">
               <div class="card" style="width: 18rem;">
                   <img src="assets/nupsi3.jpeg" class="card-img-top" alt="...">
@@ -180,13 +180,29 @@
     <section class="secoes">
       <HR></HR>
       <div id="video">
-        <h3 class="h3">Conheça o NUPSI</h3>
+        <h3 class="h3" id="o-nupsi">Conheça o NUPSI</h3>
         <iframe width="100%" height="500px"  src="https://www.youtube.com/embed/mWZ9jlheimI?si=ZER6G7QivMFXkano"
          title="YouTube video player"
          frameborder="0" 
          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
          referrerpolicy="strict-origin-when-cross-origin" 
          allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section class="secoes" id="section-pessoas">
+      <HR></HR>
+      <h3 class="h3" id="h3-pessoas">Pessoas</h3>
+      <div id="pessoas">
+        <div>
+          <img src="assets/logo3.jpeg" alt="logo NUPSI">
+        </div>
+        <a href="#">
+          <div id="pessoas-texto">
+            <p>Conheça a comunidade, seus integrantes e ex-integrantes, bem como os autores e seus projetos desenvolvidos durante o NUPSI. Clique neste card para acessar.</p>
+          </div>
+        </a>
+        
       </div>
     </section>
 
@@ -234,8 +250,7 @@
       document.addEventListener('DOMContentLoaded', function() {
         if (window.innerWidth < 992) {
             navbarCollapse.classList.remove('show');
-        }else{
-            navbarCollapse.classList.add('show');
+       
       }
 
       })
