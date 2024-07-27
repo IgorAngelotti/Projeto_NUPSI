@@ -23,26 +23,39 @@ header{
         height: 60px;
     }
 
+    & ul{
+        display: flex;
+        gap: 5px;
+       
+    }
+
     & li{
         margin-right: 7px;
     }
 
-    & .nav-link{
+    &  .nav-link,  & .dropdown-toggle{
         padding: 10px;
         transition: scale 0.1s;
         border-radius: 2px;
         font-size: 1.2rem;
         color: white;
+        font-weight: bolder;
+        background-color: transparent;
+        border: none;
+        text-align: left;
     }
 
-    & .nav-link:focus{
+    & .dropdown-toggle{
+        padding: 10px 8px;
+    }
+
+    & .nav-item > .nav-link:focus, & .dropdown-toggle:focus{
         outline: 1px solid black;
         background-color: rgba(241, 241, 241, 0.504);
     }
 
-    & .nav-link:hover{
+    & .nav-item >  .nav-link:hover, & .dropdown-toggle:hover{
         background-color: rgba(241, 241, 241, 0.504);
-       
         scale: 1.1;
     }
 
@@ -117,8 +130,6 @@ main{
     background-position: center;
     color: white;
     border-radius: 10px;
-    
-
 }
 
 
@@ -231,12 +242,17 @@ footer h3{
 
 @media screen and (max-width: 991px){
     header{
+
+        & .dropdown-toggle{
+            width: 100%;
+            text-align: left;
+        }
         
         & .container-fluid{
             padding: 0px 20px;
         }
 
-        & .nav-link:hover{
+        & .nav-item >  .nav-link:hover, & .dropdown-toggle:hover{
             scale: 1.02;
         }
     }
@@ -260,11 +276,7 @@ footer h3{
         margin: 0px;
     }
 
-    header{
-        & .nav-link:hover{
-            scale: 1.02;
-        }
-    }
+    
 
     .carousel-inner img {
         height: 400px; 
