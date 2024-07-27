@@ -4,66 +4,6 @@
     font-family: "Roboto Slab", serif;
 }
 
-header{
-
-    font-weight: bolder;
-
-    & nav{
-        background-color: #0A1F54;
-
-    }
-
-
-    & .container-fluid{
-        padding: 0px 10px;
-    }
-
-    & #logo-navbar{
-        width: 60px;
-        height: 60px;
-    }
-
-    & ul{
-        display: flex;
-        gap: 5px;
-       
-    }
-
-    & li{
-        margin-right: 7px;
-    }
-
-    &  .nav-link,  & .dropdown-toggle{
-        padding: 10px;
-        transition: scale 0.1s;
-        border-radius: 2px;
-        font-size: 1.2rem;
-        color: white;
-        font-weight: bolder;
-        background-color: transparent;
-        border: none;
-        text-align: left;
-    }
-
-    & .dropdown-toggle{
-        padding: 10px 8px;
-    }
-
-    & .nav-item > .nav-link:focus, & .dropdown-toggle:focus{
-        outline: 1px solid black;
-        background-color: rgba(241, 241, 241, 0.504);
-    }
-
-    & .nav-item >  .nav-link:hover, & .dropdown-toggle:hover{
-        background-color: rgba(241, 241, 241, 0.504);
-        scale: 1.1;
-    }
-
-    & .carousel-control-prev-icon{
-        color: red;
-    }
-    
-}
 
 .carousel-inner img {
     height: 650px; 
@@ -76,13 +16,12 @@ header{
 }
 
 main{
-    padding: 30px;
+    padding: 10px;
 }
 
 .secoes{
     max-width: 1300px;
     margin: 0px auto 60px auto;
-    padding: 10px;
 }
 
 .card{
@@ -124,7 +63,7 @@ main{
 
 
 .sobre-area{
-    background: url(assets/nupsi2.jpeg);
+    background: url(../assets/nupsi2.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -240,23 +179,6 @@ footer h3{
     padding: 0px;
 }
 
-@media screen and (max-width: 991px){
-    header{
-
-        & .dropdown-toggle{
-            width: 100%;
-            text-align: left;
-        }
-        
-        & .container-fluid{
-            padding: 0px 20px;
-        }
-
-        & .nav-item >  .nav-link:hover, & .dropdown-toggle:hover{
-            scale: 1.02;
-        }
-    }
-}
 
 @media screen and (max-width: 767px){
 
@@ -299,4 +221,19 @@ footer h3{
       }
 
      
+}
+
+@media screen and (max-width: 350px){
+    #pessoas{
+
+        & #pessoas-texto{
+            overflow-y: auto;
+        }
+        
+        & p{
+            font-size: 1.2rem;
+            transition: 0.15s;
+            margin: 0px;
+        }
+    }
 }
