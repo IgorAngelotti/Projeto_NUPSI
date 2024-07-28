@@ -42,6 +42,7 @@ header{
     & .dropdown-toggle{
         padding: 10px 8px;
     }
+    
 
     & .nav-item > .nav-link:focus, & .dropdown-toggle:focus{
         outline: 1px solid black;
