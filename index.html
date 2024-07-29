@@ -48,7 +48,7 @@
                 </li>
             </ul>
             <div class="d-flex" role="search">
-              <a class="btn btn-outline-light mx-2 bg-primary" href="#">Login</a>
+              <a class="btn btn-outline-light mx-2 bg-primary" href="login.html">Login</a>
               <a class="btn btn-outline-light bg-success" href="cadastro.html" >Cadastre-se</a>
             </div>
           </div>
@@ -75,7 +75,7 @@
                 <img src="assets/pessoas3.jpeg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                   <h5>Comunidade</h5>
-                  <p>Alunos desenvolvendo projeto prático através do NUPSI</p>
+                  <p>Densevolvimento e aprendizado mútuo</p>
                 </div>
             </div>
           </div>
@@ -95,7 +95,7 @@
 
       <section class="secoes">
         <HR></HR>
-        <h3 class="h3" id="sobre">Sobre</h3>
+        <h3 class="h3" id="sobre">Núcleo de Práticas em Sistemas de Informação</h3>
         <div class="sobre-area"> <!-- class="animate__animated animate__fadeInUp" -->
           <div class="sobre-texto">
             <p>Este projeto pedagógico prevê um Projeto de Ensino que envolve a manutenção de um Núcleo de
@@ -123,7 +123,7 @@
             <div class="accordion-item">
               <h2 class="accordion-header">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  <i class="fa-solid fa-check" style="margin-right: 10px;"></i> Missão
+                  <i class="fa-solid fa-bullseye" style="margin-right: 10px;"></i> Missão
                 </button>
               </h2>
               <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
@@ -135,7 +135,7 @@
             <div class="accordion-item">
               <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  <i class="fa-solid fa-check" style="margin-right: 10px;"></i> Visão
+                  <i class="fa-regular fa-eye" style="margin-right: 10px;"></i> Visão
                 </button>
               </h2>
               <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -147,7 +147,7 @@
             <div class="accordion-item">
               <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  <i class="fa-solid fa-check" style="margin-right: 10px;"></i> Valores
+                  <i class="fa-solid fa-hand-holding-heart" style="margin-right: 10px;"></i> Valores
                 </button>
               </h2>
               <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -162,15 +162,17 @@
 
       <section class="secoes">
         <HR></HR>
-        <div id="video">
-          <h3 class="h3" id="h3-conheca">Conheça o NUPSI</h3>
-          <iframe width="100%" height="500px"  src="https://www.youtube.com/embed/mWZ9jlheimI?si=ZER6G7QivMFXkano"
-          title="YouTube video player"
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          referrerpolicy="strict-origin-when-cross-origin" 
-          allowfullscreen></iframe>
-        </div>
+        <div>
+        <h3 class="h3" id="h3-conheca">Conheça o NUPSI</h3>
+          <div id="video">
+            <iframe width="100%" height="500px"  src="https://www.youtube.com/embed/mWZ9jlheimI?si=ZER6G7QivMFXkano"
+            title="YouTube video player"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen></iframe>
+          </div>
+      </div>
       </section>
 
       <section class="secoes" id="section-pessoas">
@@ -182,7 +184,7 @@
           </div>
           <a href="#">
             <div id="pessoas-texto">
-              <p>Conheça a comunidade, seus integrantes e ex-integrantes, bem como os autores e seus projetos desenvolvidos durante o NUPSI. <u style="color: blue;">Clique neste card para acessar.</u></p>
+              <p>Conheça a comunidade, seus integrantes e ex-integrantes, bem como os autores e seus projetos desenvolvidos durante o NUPSI. <u style="color: blue;">Clique aqui para acessar.</u></p>
             </div>
           </a>
           
@@ -332,6 +334,24 @@
           }
         });
       });
+
+      const animate = document.querySelectorAll('.animate');
+
+      document.addEventListener('scroll', function(){
+        animate.forEach(container => {
+          if (isInView(container)){
+            container.classList.add("animate--visible")
+          }
+        });
+      });
+
+      function isInView(element){
+        const rect = element.getBoundingClientRect();
+
+        return ( rect.botton > 0 && rect.top < 
+          (window.innerHeight - 150 || document.documentElement.clientHeight - 150)
+        );
+      }
     </script>
 </body>
 </html>
