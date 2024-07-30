@@ -64,7 +64,7 @@
             </div>
             <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="assets/nupsi4.jpeg" class="d-block w-100" alt="...">
+                <img src="assets/nupsi4.jpeg" class="d-block w-100 parallax" alt="...">
                 <div class="carousel-caption d-none d-md-block ">
                   <h5>NUPSI</h5>
                   <p>Núcleo de Práticas em Sistemas de Informação</p>
@@ -72,7 +72,7 @@
             </div>
             
             <div class="carousel-item"> <!-- animate__animated animate__fadeIn -->
-                <img src="assets/pessoas3.jpeg" class="d-block w-100" alt="...">
+                <img src="assets/pessoas3.jpeg" class="d-block w-100 parallax" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                   <h5>Comunidade</h5>
                   <p>Densevolvimento e aprendizado mútuo</p>
@@ -335,6 +335,8 @@
         });
       });
 
+      /*
+
       const animate = document.querySelectorAll('.animate');
 
       document.addEventListener('scroll', function(){
@@ -352,6 +354,19 @@
           (window.innerHeight - 150 || document.documentElement.clientHeight - 150)
         );
       }
+
+      */
+
+      const parallaxImage = document.querySelectorAll('.parallax');
+
+      parallaxImage.forEach((image) => {
+          window.addEventListener('scroll', () => {
+          const scrollPosition = window.scrollY;
+          image.style.transform = `translateY(${scrollPosition * 0.99}px)`;
+        });
+      })
+
+      
     </script>
 </body>
 </html>
