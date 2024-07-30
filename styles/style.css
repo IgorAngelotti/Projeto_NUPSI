@@ -40,9 +40,11 @@ main{
     margin: 0px auto 100px auto;
 }
 
+
 .card{
     padding: 0px;
     margin: 0px auto;
+    margin-bottom: 30px;
 
     & .card-body{
 
