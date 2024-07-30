@@ -1,0 +1,20 @@
+*{
+    margin: 0px;
+    padding: 0px;
+
+    font-family: "Roboto Slab", serif;
+}
+
+div header{
+    background-color: #0A1F54;
+    color: white;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+main{
+    margin-top: 100px;
+}

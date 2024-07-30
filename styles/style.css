@@ -188,6 +188,11 @@ footer h3{
     margin: 30px 0px 15px 0px;
 }
 
+footer .hr{
+    max-width: 1420px;
+    border: 1px solid #fff;
+    margin: auto;
+}
 
 
 .footer-content{
@@ -203,6 +208,17 @@ footer h3{
 
 .footer-card{
     max-width: 400px;
+    
+
+    & a{
+        
+        color: white;
+    }
+}
+
+footer .rights{
+    margin: 20px auto 0px auto;
+    text-align: center;
 }
 
 .container-fluid, .col{
