@@ -110,14 +110,63 @@
         </div>
         
         <div class="d-flex justify-content-center align-items-center" role="search">
-          <a class="btn btn-outline-light mx-2 bg-primary" href="#">Editar</a>
+          <button class="btn btn-outline-light mx-2 bg-primary" href="#" data-bs-toggle="modal" data-bs-target="#atualizarInfo">Editar</button>
         </div>
       </main>
       <br>
+
+      <div class="modal fade" id="atualizarInfo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form action="" method="post">
+                <div class="mb-3">
+                  <label for="Nome" class="form-label">Nome</label>
+                  <input type="text" class="form-control" id="Nome" name="nome" placeholder="Seu novo nome">
+                </div>
+                <div class="mb-3">
+                  <label for="Senha" class="form-label">Senha</label>
+                  <input type="text" class="form-control" id="Senha" name="senha" placeholder="Nova senha">
+                </div>
+                <div class="mb-3">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
       <script src="script/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/5086c6dc28.js" crossorigin="anonymous"></script>
-    <script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+      <script src="https://kit.fontawesome.com/5086c6dc28.js" crossorigin="anonymous"></script>
+      <script>
+
+        const modalAtualizar = document.getElementById('atualizarInfo')
+        if (modalAtualizar) {
+          modalAtualizar.addEventListener('show.bs.modal', event => {
+            // Button that triggered the modal
+            const button = event.relatedTarget
+            
+            nome = document.getElementById('nome').value;
+            senha = document.getElementById('senha').value;
+
+            document.getElementById('Nome').value = nome;
+            document.getElementById('Senha').value = senha;
+
+
+      
+
+            document.getElementById('Nome').focus();
+          })
+        }
+
         const senhaInput = document.getElementById('senha');
         const exibirSenhaButton = document.getElementById('exibir-senha');
       
@@ -130,36 +179,36 @@
             exibirSenhaButton.textContent = 'Exibir senha';
           }
         });
-      </script>
-      <footer>
-        <div class="footer-content">
-          <div class="footer-card">
-            <h3>NUPSI</h3>
-            <p>Av. ESCÓCIA, 1001 - Cidade das Águas, Frutal - MG, 38202-436</p>
-            <p><b>Telefone: </b>(012 34) 3429-3470</p>
-            <p><b>Email: </b>testesteste.gmail.com</p>
-          </div>
-          <div class="footer-card">
-            <h3><b>Links úteis</b></h3>
-            <a href="https://github.com/UEMGNUPSI" target="_blank">
-              <p>GitHub</p>
-            </a>
+        </script>
+        <footer>
+          <div class="footer-content">
+            <div class="footer-card">
+              <h3>NUPSI</h3>
+              <p>Av. ESCÓCIA, 1001 - Cidade das Águas, Frutal - MG, 38202-436</p>
+              <p><b>Telefone: </b>(012 34) 3429-3470</p>
+              <p><b>Email: </b>testesteste.gmail.com</p>
+            </div>
+            <div class="footer-card">
+              <h3><b>Links úteis</b></h3>
+              <a href="https://github.com/UEMGNUPSI" target="_blank">
+                <p>GitHub</p>
+              </a>
+              
+            </div>
             
+            <div class="footer-card">
+              <h3><b>Siga-nos!</b></h3>
+              <a href="https://www.facebook.com/NupsiUemgFrutal/photos_by?locale=pt_BR" target="_blank">
+                <p>Nos siga no facebook e fique por dentro de tudo que acontece no NUPSI</p>
+              </a>
+            </div>
           </div>
-          
-          <div class="footer-card">
-            <h3><b>Siga-nos!</b></h3>
-            <a href="https://www.facebook.com/NupsiUemgFrutal/photos_by?locale=pt_BR" target="_blank">
-              <p>Nos siga no facebook e fique por dentro de tudo que acontece no NUPSI</p>
-            </a>
+    
+          <div class="hr"></div>
+    
+          <div class="rights">
+            <p>&#174; Todos os direitos reservados. 2024</p>
           </div>
-        </div>
-  
-        <div class="hr"></div>
-  
-        <div class="rights">
-          <p>&#174; Todos os direitos reservados. 2024</p>
-        </div>
-      </footer>
+        </footer>
 </body>
 </html>

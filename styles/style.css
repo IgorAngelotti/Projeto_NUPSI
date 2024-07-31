@@ -31,7 +31,7 @@
 }
 
 main{
-    padding: 20px;
+    padding: 10px;
     margin-top: 60px;
 }
 
@@ -196,6 +196,8 @@ main{
         display: flex;
         flex-direction: column;
         gap: 20px;
+        
+        
     }
 
     & input, textarea{
@@ -203,28 +205,61 @@ main{
         outline: none;
         padding: 10px;
         border: 1px solid #636161;
+        
     }
+
+    & input:hover::placeholder,
+    input:focus::placeholder,
+    textarea:hover::placeholder,
+    textarea:focus::placeholder
+    {
+        color: #0f2e7f;
+        transition: 200ms;
+    }
+
+    
 
     & input:focus,
     input:hover,
     textarea:focus,
     textarea:hover{
-        border: 1px solid#0f2e7f;
+        border: 1px solid #0f2e7f;
     }
 
+    & .textarea{
+        
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        & button{
+            padding: 10px;
+            outline: none;
+            border-radius: 1px;
+            justify-content: right;
+        }
+    }
+    
     & textarea{
         resize: none;
+        height: 170px;
+        
     }
 
     & #contato-texto{
         width: 50%;
         & h4{
             color: #0f2e7f;
-            text-align: justify;
+            text-align: center;
         }
 
+    & p{
+        text-align: center;
+    }
+    
     & .nome-email{
         display: flex;
+       
         gap: 20px;
     }
 
@@ -335,11 +370,14 @@ footer .rights{
         & iframe{
             width: 100%;
             height: 400px;
-            
         }
     
         & #contato-texto{
             width: 100%;
+        }
+
+        & textarea{
+            height: 200px ;
         }
     
     }

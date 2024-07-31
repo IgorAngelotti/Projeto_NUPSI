@@ -277,21 +277,23 @@
           <form action="" method="post">
             <div class="nome-email">
               <div>
-                <input type="text" name="nome" id="nome" placeholder="Nome">
+                <input type="text" name="nome" id="nome" placeholder="Nome" autocomplete="off" required>
               </div>
 
               <div>
-                <input type="email" name="email" id="email" placeholder="Email">
+                <input type="email" name="email" id="email" placeholder="Email" autocomplete="off" required>
               </div>
             </div>
-            <div>
-              <textarea name="mensagem" id="mensagem" placeholder="Mensagem" noresize></textarea>
+            <div class="textarea">
+              <textarea name="mensagem" id="mensagem" placeholder="Mensagem" required></textarea>
+              <button type="submit" class="btn btn-primary" name="enviar-mensagem">Enviar</button>
             </div>
           </form>
         </div>
-      </div>
+      </div> 
     </section>
-
+    
+    <hr>
     </main>
 
     <footer>
