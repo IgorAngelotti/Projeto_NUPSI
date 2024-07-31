@@ -122,6 +122,12 @@ form{
         display: flex;
         justify-content: center;
 
+        a{
+            display: flex;
+            height: 100%;
+            justify-content: center;
+        }
+
         & img{
             width: 50%;
             height: 25%;
