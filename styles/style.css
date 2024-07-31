@@ -31,7 +31,7 @@
 }
 
 main{
-    padding: 10px;
+    padding: 20px;
     margin-top: 60px;
 }
 
@@ -176,6 +176,67 @@ main{
     }
 }
 
+.contatos{
+
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    
+    & #contato-maps{
+        width: 50%;
+    }
+    
+    & iframe{
+        width: 100%;
+        height: 400px;
+        
+    }
+
+    & form{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    & input, textarea{
+        width: 100%;
+        outline: none;
+        padding: 10px;
+        border: 1px solid #636161;
+    }
+
+    & input:focus,
+    input:hover,
+    textarea:focus,
+    textarea:hover{
+        border: 1px solid#0f2e7f;
+    }
+
+    & textarea{
+        resize: none;
+    }
+
+    & #contato-texto{
+        width: 50%;
+        & h4{
+            color: #0f2e7f;
+            text-align: justify;
+        }
+
+    & .nome-email{
+        display: flex;
+        gap: 20px;
+    }
+
+    & .nome-email > div{
+        width: 50%;
+
+    }
+
+    }
+
+}
+
 footer{
     background-color: #0A1F54;
     height: auto;
@@ -260,6 +321,27 @@ footer .rights{
         align-items: center;
         justify-content: center;
         margin: 0px;
+    }
+
+    .contatos{
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+
+        & #contato-maps{
+            width: 100%;
+        }
+        
+        & iframe{
+            width: 100%;
+            height: 400px;
+            
+        }
+    
+        & #contato-texto{
+            width: 100%;
+        }
+    
     }
 
     

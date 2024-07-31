@@ -46,6 +46,10 @@ main{
     }
 }
 
+label{
+    font-size: 1.2rem;
+}
+
 form{
     
     & .input-area{
@@ -54,9 +58,7 @@ form{
         gap: 8px;
         border: 2px solid rgb(116, 115, 115);
         border-radius: 50px;
-        padding: 5px;
-
-        
+        padding: 8px;
 
         & i{
             margin-left: 5px;
@@ -71,7 +73,7 @@ form{
 
     & .btn{
         width: 100%;
-        margin-top: 10px;
+        margin: 10px 0px;
         border-radius: 20px;
         font-size: 1.3rem;
         background: linear-gradient(to right, #0A1F54, #0c308c);
