@@ -83,7 +83,8 @@ main{
 
 
 .sobre-texto{
-    background-color: rgba(0, 0, 0, 0.304);
+    background-color: rgba(0, 0, 0, 0.555);
+    backdrop-filter: blur(3px);
     border-radius: 10px;
     padding: 20px;
     font-size: 1.5rem;
