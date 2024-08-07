@@ -1,0 +1,74 @@
+*{
+    font-weight: bold;
+}
+
+main > h1{
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+}
+
+main > h1, 
+main > h2{
+    text-align: center;
+    color: white;
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.453);
+}
+
+#pessoas-container{
+    margin: 30px 0px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    background-color: #f4f4f4;
+    background: url(../assets/nupsi4.jpeg);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    background-attachment: fixed ;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+main {
+    padding: 2rem;
+}
+
+.participant-card {
+    background-color: #ffffff7f;
+    border: 1px solid white;
+    box-shadow: 5px 5px 10px #ed0404;
+    color:#001240;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    display: flex;
+    gap: 10px;
+    justify-content: space-around;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    box-shadow: 3px 3px 10px #343434;
+    
+
+    & img{
+        width: 270px;
+        border-radius: 5px ;
+    }
+}
+
+.participant-card h2 {
+    margin-top: 0;
+}
+
+.participant-card ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+}
