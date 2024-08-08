@@ -66,13 +66,6 @@
         <label for="email">Email:</label>
         <input type="email" id="email" value="joao.silva@example.com" readonly>
 
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" value="123456" readonly>
-
-        <button id="exibir-senha" class="btn btn-primary">
-          <i class="fas fa-eye"></i> Exibir senha
-        </button>
-
       </div>
     </div>
 
@@ -130,10 +123,6 @@
                 <label for="Nome" class="form-label">Nome</label>
                 <input type="text" class="form-control" id="Nome" name="nome" placeholder="Seu novo nome">
               </div>
-              <div class="mb-3">
-                <label for="Senha" class="form-label">Senha</label>
-                <input type="text" class="form-control" id="Senha" name="senha" placeholder="Nova senha">
-              </div>
             </div>
             <div class="mb-3">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -160,30 +149,11 @@
         const button = event.relatedTarget
 
         nome = document.getElementById('nome').value;
-        senha = document.getElementById('senha').value;
 
         document.getElementById('Nome').value = nome;
-        document.getElementById('Senha').value = senha;
-
-
-
-
         document.getElementById('Nome').focus();
       })
     }
-
-    const senhaInput = document.getElementById('senha');
-    const exibirSenhaButton = document.getElementById('exibir-senha');
-
-    exibirSenhaButton.addEventListener('click', () => {
-      if (senhaInput.type === 'password') {
-        senhaInput.type = 'text';
-        exibirSenhaButton.innerHTML = '<i class="fa-solid fa-eye-slash"></i> Ocultar senha';
-      } else {
-        senhaInput.type = 'password';
-        exibirSenhaButton.innerHTML = '<i class="fas fa-eye"></i> Exibir senha';
-      }
-    });
   </script>
 </body>
 
