@@ -101,11 +101,10 @@
         <input type="text" id="nome" value="<?php echo"$nome"; ?>" readonly>
 
         <label for="email">Email:</label>
-<<<<<<< HEAD:clientes.php
+
         <input type="email" id="email" value="<?php echo"$email"; ?>" readonly>
-=======
-        <input type="email" id="email" value="joao.silva@example.com" readonly>
->>>>>>> 212b5210b709e33b3508f3bffbd6d1dc13c6b380:clientes.html
+
+
 
       </div>
     </div>
@@ -190,19 +189,11 @@
         const button = event.relatedTarget
 
         nome = document.getElementById('nome').value;
-<<<<<<< HEAD:clientes.php
-=======
 
->>>>>>> 212b5210b709e33b3508f3bffbd6d1dc13c6b380:clientes.html
         document.getElementById('Nome').value = nome;
         document.getElementById('Nome').focus();
       })
     }
-<<<<<<< HEAD:clientes.php
-
-    
-=======
->>>>>>> 212b5210b709e33b3508f3bffbd6d1dc13c6b380:clientes.html
   </script>
 </body>
 
