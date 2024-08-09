@@ -14,6 +14,10 @@
       echo "<script>alert('".$_SESSION['projeto-cadastrado']."');</script>";
       unset($_SESSION['projeto-cadastrado']);
     } 
+    if (isset($_SESSION['projeto-editado'])){
+      echo "<script>alert('".$_SESSION['projeto-editado']."');</script>";
+      unset($_SESSION['projeto-editado']);
+    } 
 
 ?>
 
@@ -120,7 +124,7 @@
                         echo '  <td>'.$value['imagem'].'</td>';
                         echo '  <td>'.$value['data_inclusao'].'</td>';
                         echo '  <td>
-                                  <button class="btn btn-outline-warning" type="button">Editar</button>
+                                  <button class="btn btn-outline-warning" type="button" data-bs-toggle="modal" data-bs-target="#editarProjeto" data-id="'.$value['id'].'" data-titulo="'.$value['titulo'].'" data-descricao="'.$value['descricao'].'" data-linguagens="'.$value['linguagens'].'" data-link="'.$value['link'].'" data-imagem="'.$value['imagem'].'">Editar</button>
                                   <button class="btn btn-outline-danger" type="button">Excluir</button>
                                 </td>';
                         echo '</tr>';
@@ -147,7 +151,8 @@
           </div>
       </main>
     </div>
-
+    
+      <!-- modal adicionar projeto -->
     <div class="modal fade" id="adicionarProjeto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
         <div class="modal-content">
@@ -157,7 +162,7 @@
           </div>
 
           <div class="modal-body">
-            <form action="dao/adicionar_projeto.php" method="post" enctype="multipart/form-data">
+            <form action="dao/projeto_adicionar.php" method="post" enctype="multipart/form-data">
               <div class="form-group mb-3">
                   <label for="titulo">Nome do projeto:</label>
                   <input type="text" class="form-control" id="titulo" name="titulo" required>
@@ -184,14 +189,97 @@
               </div>
             </form>
           </div>
-
         </div>
       </div>
+    </div>
+
+     <!-- modal editar projeto -->
+    <div class="modal fade" id="editarProjeto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar projeto</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body">
+            <form action="dao/projeto_editar.php" method="post" enctype="multipart/form-data">
+              <input type="hidden" id="Id" name="id">
+              <div class="form-group mb-3">
+                  <label for="Titulo">Nome do projeto:</label>
+                  <input type="text" class="form-control" id="Titulo" name="titulo" required>
+              </div>
+              <div class="form-group mb-3">
+                  <label for="Descricao">Descrição:</label>
+                  <textarea class="form-control" id="Descricao" name="descricao" rows="3" maxlength="100" required></textarea>
+              </div>
+              <div class="form-group mb-3">
+                  <label for="Linguagens">Linguagens (separar por vírgula):</label>
+                  <textarea class="form-control" id="Linguagens" name="linguagens" required></textarea>
+              </div>
+              <div class="form-group mb-3">
+                  <label for="Link">Link (projeto hospedado ou repositório GitHub):</label>
+                  <input type="text" class="form-control" id="Link" name="link" required>
+              </div>
+                <div class="form-group mb-3">
+                    <label for="Foto">Foto:</label>
+                    <input type="file" class="form-control-file" id="Foto" name="foto">
+                    <input type="hidden" id="Foto_atual" name="foto_atual">
+                </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" name="atualizar-projeto" class="btn btn-primary">Editar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
 
     <script src="script/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/5086c6dc28.js" crossorigin="anonymous"></script>
+    <script>
+       document.addEventListener('DOMContentLoaded', function () {
+            const modalEditar = document.getElementById('editarProjeto'); 
+        
+
+            // FUNÇÃO PARA PEGAR BOTÃO DE ACIONAMENTO DO MODAL COM OS ATRIBUTOS PASSADOS A ELE 
+            modalEditar.addEventListener('show.bs.modal', function (event) {
+              const button = event.relatedTarget;
+              const id = button.getAttribute('data-id');
+              const titulo = button.getAttribute('data-titulo');
+              const descricao = button.getAttribute('data-descricao');
+              const linguagens = button.getAttribute('data-linguagens');
+              const link = button.getAttribute('data-link');
+              const imagem = button.getAttribute('data-imagem');
+
+              document.getElementById('Id').value = id;
+              document.getElementById('Titulo').value = titulo;
+              document.getElementById('Descricao').value = descricao;
+              document.getElementById('Linguagens').value = linguagens;
+              document.getElementById('Link').value = link;
+              document.getElementById('Foto_atual').value = imagem
+              console.log(document.getElementById('Foto_atual').value);
+              
+      
+          
+          })
+       })
+
+       /*
+         echo '  <td>'.$value['id'].'</td>';
+                        echo '  <td>'.$value['titulo'].'</td>';
+                        echo '  <td>'.$value['descricao'].'</td>';
+                        echo '  <td>'.$value['linguagens'].'</td>';
+                        echo '  <td>'.$value['link'].'</td>';
+                        echo '  <td>'.$value['imagem'].'</td>';
+                        echo '  <td>'.$value['data_inclusao'].'</td>'
+       */
+
+
+    </script>
 </body>
 </html>
