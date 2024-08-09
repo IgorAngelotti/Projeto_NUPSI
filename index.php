@@ -291,7 +291,7 @@ if (isset($_SESSION['usuario_perfil'])){
               </div>
               <?php
                 require_once('dao/conexao.php');
-                $sql = $pdo->prepare("SELECT titulo, descricao, linguagens, link, imagem FROM projetos ORDER BY data_inclusao DESC");
+                $sql = $pdo->prepare("SELECT titulo, descricao, linguagens, link, imagem FROM projetos ORDER BY id ASC");
                 $sql->execute();
 
                 $info = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -329,7 +329,7 @@ if (isset($_SESSION['usuario_perfil'])){
 
         <div id="contato-texto">
           <h4>Mande-nos uma mensagem</h4>
-          <p>Possui alguma dúvida ou tem interesse em participar do NUPSI? Entre em contato!</p>
+          <p>Possui alguma dúvida em relação ao NUPSI? Entre em contato!</p>
           <form action="" method="post">
             <div class="nome-email">
               <div>

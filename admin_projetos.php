@@ -18,6 +18,10 @@
       echo "<script>alert('".$_SESSION['projeto-editado']."');</script>";
       unset($_SESSION['projeto-editado']);
     } 
+    if (isset($_SESSION['falha-upload'])){
+      echo "<script>alert('".$_SESSION['falha-upload']."');</script>";
+      unset($_SESSION['falha-upload']);
+    } 
 
 ?>
 
@@ -95,11 +99,11 @@
                   <thead>
                       <tr>
                           <th>ID</th>
+                          <th>Imagem</th>
                           <th>Título</th>
                           <th>Descrição</th>
                           <th>Linguagens</th>
                           <th>Link</th>
-                          <th>Imagem</th>
                           <th>Data de Inclusão</th>
                           <th>Ações</th>
                       </tr>
@@ -117,11 +121,11 @@
                       foreach ($info as $key => $value) {
                         echo '<tr>';
                         echo '  <td>'.$value['id'].'</td>';
+                        echo '  <td><img src="fotos-projetos/'.$value['imagem'].'" alt="Imagem do projeto" style="width: 300px;"></td>';
                         echo '  <td>'.$value['titulo'].'</td>';
                         echo '  <td>'.$value['descricao'].'</td>';
                         echo '  <td>'.$value['linguagens'].'</td>';
                         echo '  <td>'.$value['link'].'</td>';
-                        echo '  <td>'.$value['imagem'].'</td>';
                         echo '  <td>'.$value['data_inclusao'].'</td>';
                         echo '  <td>
                                   <button class="btn btn-outline-warning" type="button" data-bs-toggle="modal" data-bs-target="#editarProjeto" data-id="'.$value['id'].'" data-titulo="'.$value['titulo'].'" data-descricao="'.$value['descricao'].'" data-linguagens="'.$value['linguagens'].'" data-link="'.$value['link'].'" data-imagem="'.$value['imagem'].'">Editar</button>
@@ -132,6 +136,9 @@
 
                     ?>
 
+                  
+
+                     
                       <!--
                         <tr>
                             <td>1</td>
@@ -164,24 +171,29 @@
           <div class="modal-body">
             <form action="dao/projeto_adicionar.php" method="post" enctype="multipart/form-data">
               <div class="form-group mb-3">
-                  <label for="titulo">Nome do projeto:</label>
+                  <label for="Titulo">Nome do projeto:</label>
                   <input type="text" class="form-control" id="titulo" name="titulo" required>
               </div>
               <div class="form-group mb-3">
                   <label for="descricao">Descrição:</label>
                   <textarea class="form-control" id="descricao" name="descricao" rows="3" maxlength="100" required></textarea>
               </div>
-              <div class="form-group mb-3">
-                  <label for="linguagens">Linguagens (separar por vírgula):</label>
-                  <textarea class="form-control" id="linguagens" name="linguagens" required></textarea>
-              </div>
-              <div class="form-group mb-3">
-                  <label for="link">Link (projeto hospedado ou repositório GitHub):</label>
-                  <input type="text" class="form-control" id="link" name="link" required>
+              <div class="form-group lado-alado mb-3">
+                  <div>
+                    <label for="linguagens">Linguagens (separar por vírgula):</label>
+                    <textarea class="form-control" id="linguagens" name="linguagens" maxlength="100" required></textarea>
+                  </div>
+                  <div>
+                    <label for="link">Link (projeto hospedado ou repositório GitHub):</label>
+                    <input type="text" class="form-control" id="link" name="link" required>
+                  </div>
               </div>
               <div class="form-group mb-3">
                   <label for="foto">Foto:</label>
                   <input type="file" class="form-control-file" id="foto" name="foto" required>
+              </div>
+              <div class="form-group mb-3 d-flex justify-content-end">
+                <input type="reset" class="p-1" value="Limpar Campos">
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -213,22 +225,31 @@
                   <label for="Descricao">Descrição:</label>
                   <textarea class="form-control" id="Descricao" name="descricao" rows="3" maxlength="100" required></textarea>
               </div>
-              <div class="form-group mb-3">
-                  <label for="Linguagens">Linguagens (separar por vírgula):</label>
-                  <textarea class="form-control" id="Linguagens" name="linguagens" required></textarea>
+              <div class="form-group lado-alado mb-3">
+                  <div>
+                    <label for="Linguagens">Linguagens (separar por vírgula):</label>
+                    <textarea class="form-control" id="Linguagens" name="linguagens" maxlength="100" required></textarea>
+                  </div>
+                  <div>
+                    <label for="Link">Link (projeto hospedado ou repositório GitHub):</label>
+                    <input type="text" class="form-control" id="Link" name="link" required>
+                  </div>
               </div>
-              <div class="form-group mb-3">
-                  <label for="Link">Link (projeto hospedado ou repositório GitHub):</label>
-                  <input type="text" class="form-control" id="Link" name="link" required>
-              </div>
+              
                 <div class="form-group mb-3">
-                    <label for="Foto">Foto:</label>
+                  <div class="form-content mb-3">
+                    <label for="">Foto atual: </label>
+                    <img src="" alt="" id="foto-atual" width="100%" height="100%" class="img-thumbnail">
+                  </div>
+                  <div class="form-content">
+                    <label for="Foto">Nova foto:</label>
                     <input type="file" class="form-control-file" id="Foto" name="foto">
                     <input type="hidden" id="Foto_atual" name="foto_atual">
+                  </div>
                 </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="submit" name="atualizar-projeto" class="btn btn-primary">Editar</button>
+                <button type="submit" name="atualizar-projeto" class="btn btn-primary">Salvar</button>
               </div>
             </form>
           </div>
@@ -243,8 +264,14 @@
     <script src="https://kit.fontawesome.com/5086c6dc28.js" crossorigin="anonymous"></script>
     <script>
        document.addEventListener('DOMContentLoaded', function () {
+            
+            const modalAdicionar = document.getElementById('adicionarProjeto');
             const modalEditar = document.getElementById('editarProjeto'); 
-        
+            
+            modalAdicionar.addEventListener('shown.bs.modal', function (event) {
+              document.getElementById('titulo').focus();
+
+            });
 
             // FUNÇÃO PARA PEGAR BOTÃO DE ACIONAMENTO DO MODAL COM OS ATRIBUTOS PASSADOS A ELE 
             modalEditar.addEventListener('show.bs.modal', function (event) {
@@ -262,10 +289,9 @@
               document.getElementById('Linguagens').value = linguagens;
               document.getElementById('Link').value = link;
               document.getElementById('Foto_atual').value = imagem
-              console.log(document.getElementById('Foto_atual').value);
               
-      
-          
+              const imagemAtual = document.getElementById('foto-atual');
+              imagemAtual.src= "fotos-projetos/"+ imagem;
           })
        })
 

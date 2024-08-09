@@ -44,3 +44,19 @@ textarea{
         border-top: 1px solid rgba(114, 114, 114, 0.432);
     }
 }
+
+
+.form-content{
+    display: flex;
+    flex-direction: column;
+} 
+
+.lado-alado{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    & div{
+        width: 50%;
+    }
+}
