@@ -1,0 +1,197 @@
+<?php
+    session_start();
+
+    if (!isset($_SESSION['usuario_id'] )){
+      header("Location: index.php");
+      exit();
+    }else if ($_SESSION['usuario_perfil'] != "admin"){
+      header("Location: index.php");
+    }else{
+      $perfil =  $_SESSION['usuario_nome'];
+    }
+
+    if (isset($_SESSION['projeto-cadastrado'])){
+      echo "<script>alert('".$_SESSION['projeto-cadastrado']."');</script>";
+      unset($_SESSION['projeto-cadastrado']);
+    } 
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administração</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="styles/admin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <aside>
+        <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasExampleLabel">NUPSI - ADM</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <div>
+                <span><i class="fa-solid fa-user"> </i> - <?php echo "$perfil"; ?></span>
+              </div>
+
+              <hr>
+
+              <div class="mt-3">
+                <a href="admin_projetos.php" class="btn btn-secondary" type="button">
+                  Gerenciar Projetos
+                </a>
+              </div>
+
+              <div class="mt-2">
+                <a href="admin_pessoas.php" class="btn btn-secondary" type="button">
+                  Gerenciar Pessoas
+                </a>
+              </div>
+
+
+            </div>
+          </div>
+    </aside>
+
+    <div>
+        <header class="d-flex justify-content-between align-items-center p-3">
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                &#9776;
+            </button>
+
+            <a href="index.php">
+              <h2 class="m-0">NUPSI</h2>
+            </a>
+
+            <div>
+            <a class="btn btn-outline-light mx-2 bg-danger" href="dao/logout.php">Logout</a>
+            </div>
+        </header>
+        
+        <main class="container" style="max-width: 1400px;">
+          <h3>Gerenciamento de Projetos</h3>
+          
+          <div class="d-flex justify-content-end mb-3">
+              <button class="btn btn-success me-2" type="button" data-bs-toggle="modal" data-bs-target="#adicionarProjeto">Adicionar Projeto</button>
+          </div>
+          
+          <div class="table-responsive">
+              <table class="table table-striped">
+                  <thead>
+                      <tr>
+                          <th>ID</th>
+                          <th>Título</th>
+                          <th>Descrição</th>
+                          <th>Linguagens</th>
+                          <th>Link</th>
+                          <th>Imagem</th>
+                          <th>Data de Inclusão</th>
+                          <th>Ações</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <!-- Linhas de exemplo; substitua com os dados reais -->
+                      
+                    <?php
+                      require_once("dao/conexao.php");
+                      $sql = $pdo->prepare("SELECT * FROM projetos order by id asc");
+                      $sql->execute();
+
+                      $info = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+                      foreach ($info as $key => $value) {
+                        echo '<tr>';
+                        echo '  <td>'.$value['id'].'</td>';
+                        echo '  <td>'.$value['titulo'].'</td>';
+                        echo '  <td>'.$value['descricao'].'</td>';
+                        echo '  <td>'.$value['linguagens'].'</td>';
+                        echo '  <td>'.$value['link'].'</td>';
+                        echo '  <td>'.$value['imagem'].'</td>';
+                        echo '  <td>'.$value['data_inclusao'].'</td>';
+                        echo '  <td>
+                                  <button class="btn btn-outline-warning" type="button">Editar</button>
+                                  <button class="btn btn-outline-danger" type="button">Excluir</button>
+                                </td>';
+                        echo '</tr>';
+                      }
+
+                    ?>
+
+                      <!--
+                        <tr>
+                            <td>1</td>
+                            <td>Projeto Alpha</td>
+                            <td>Descrição do Projeto Alpha</td>
+                            <td>HTML, CSS, JavaScript</td>
+                            <td><a href="#">github.com</a></td>
+                            <td>01/01/2024</td>
+                            <td>
+                                <button class="btn btn-outline-warning" type="button">Editar</button>
+                                <button class="btn btn-outline-danger" type="button">Excluir</button>
+                            </td>
+                        </tr>
+                      -->
+                  </tbody>
+              </table>
+          </div>
+      </main>
+    </div>
+
+    <div class="modal fade" id="adicionarProjeto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Adicionar projeto</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body">
+            <form action="dao/adicionar_projeto.php" method="post" enctype="multipart/form-data">
+              <div class="form-group mb-3">
+                  <label for="titulo">Nome do projeto:</label>
+                  <input type="text" class="form-control" id="titulo" name="titulo" required>
+              </div>
+              <div class="form-group mb-3">
+                  <label for="descricao">Descrição:</label>
+                  <textarea class="form-control" id="descricao" name="descricao" rows="3" maxlength="100" required></textarea>
+              </div>
+              <div class="form-group mb-3">
+                  <label for="linguagens">Linguagens (separar por vírgula):</label>
+                  <textarea class="form-control" id="linguagens" name="linguagens" required></textarea>
+              </div>
+              <div class="form-group mb-3">
+                  <label for="link">Link (projeto hospedado ou repositório GitHub):</label>
+                  <input type="text" class="form-control" id="link" name="link" required>
+              </div>
+              <div class="form-group mb-3">
+                  <label for="foto">Foto:</label>
+                  <input type="file" class="form-control-file" id="foto" name="foto" required>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" name="cadastrar-projeto" class="btn btn-primary">Adicionar</button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+  </div>
+
+
+    <script src="script/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/5086c6dc28.js" crossorigin="anonymous"></script>
+</body>
+</html>

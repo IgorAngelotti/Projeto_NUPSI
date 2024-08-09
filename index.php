@@ -1,3 +1,17 @@
+
+<?php
+session_start();
+
+if (isset($_SESSION['usuario_perfil'])){
+  $perfil = $_SESSION['usuario_perfil'];
+}else{
+  $perfil = "";
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -21,7 +35,7 @@
     <header id="header">
       <nav class="navbar navbar-expand-lg border-bottom border-body fixed-top" data-bs-theme="dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html"><img src="assets/logoBranca.png" alt="logo nupsi" id="logo-navbar"></a>
+            <a class="navbar-brand" href="index.php"><img src="assets/logoBranca.png" alt="logo nupsi" id="logo-navbar"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="true" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -44,15 +58,30 @@
                     <li><a class="dropdown-item nav-link" href="#h3-fundamentos">Fundamentos</a></li>
                     <li><a class="dropdown-item nav-link" href="#h3-conheca">Conheça</a></li>
                     <li><a class="dropdown-item nav-link" href="#h3-comunidade">Comunidade</a></li>
-                    <hr>
-                    <li><a class="dropdown-item " href="admin_projetos.html">ADMIN</a></li>
-                    <li><a class="dropdown-item " href="clientes.html">CLIENTES</a></li>
+                    <?php if ($perfil == "admin"): ?>
+                      <hr>
+                      <li><a class="dropdown-item " href="admin_projetos.php">ADMIN</a></li>
+                    <?php endif; ?>
+                    <?php if ($perfil == "cliente"): ?>
+                      <hr>
+                      <li><a class="dropdown-item " href="clientes.php">CLIENTES</a></li>
+                    <?php endif; ?>
                   </ul>
                 </li>
             </ul>
             <div class="d-flex" role="search">
-              <a class="btn btn-outline-light mx-2 bg-primary" href="login.html">Login</a>
-              <a class="btn btn-outline-light bg-success" href="cadastro.html" >Cadastre-se</a>
+              <?php if ($perfil == ""): ?>
+                <a class="btn btn-outline-light mx-2 bg-primary" href="login.php">Login</a>
+                <a class="btn btn-outline-light bg-success" href="cadastro.html" >Cadastre-se</a>
+
+              <?php elseif ($perfil == "cliente"): ?>
+                <a class="btn btn-outline-light bg-success" href="clientes.php" >Acessar perfil</a>
+                <a class="btn btn-outline-light mx-2 bg-danger" href="dao/logout.php">Logout</a>
+
+              <?php elseif ($perfil == "admin"): ?>
+                <a class="btn btn-outline-light bg-success" href="admin_projetos.php" >Gerenciamento</a>
+                <a class="btn btn-outline-light mx-2 bg-danger" href="dao/logout.php">Logout</a>
+              <?php endif; ?>
             </div>
           </div>
         </div>
@@ -185,7 +214,7 @@
           <div>
             <img src="assets/pessoas.jpeg" alt="logo NUPSI">
           </div>
-          <a href="pessoas.html">
+          <a href="pessoas.php">
             <div id="pessoas-texto">
               <p>Conheça a comunidade, seus integrantes e ex-integrantes, bem como os autores e seus projetos desenvolvidos durante o NUPSI. <u style="color: blue;">Clique aqui para acessar.</u></p>
             </div>
@@ -198,7 +227,7 @@
         <HR></HR>
         <div id="cards-teste " class="container mb-4">
           <h3 class="h3" id="h3-projetos">Projetos do NUPSI</h3>
-          <div class="row gap-4">
+          <div class="cards-container row gap-4">
               <div class="card" style="width: 18rem;">
                   <img src="assets/nupsi3.jpeg" class="card-img-top" alt="...">
                   <div class="card-body">
@@ -260,6 +289,32 @@
                     <a href="https://github.com/UEMGNUPSI/UemgEventos"  target="_blank" class="btn btn-primary">Acesse aqui</a>
                   </div>
               </div>
+              <?php
+                require_once('dao/conexao.php');
+                $sql = $pdo->prepare("SELECT titulo, descricao, linguagens, link, imagem FROM projetos ORDER BY data_inclusao DESC");
+                $sql->execute();
+
+                $info = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+                foreach ($info as $key => $value) {
+                  echo '<div class="card" style="width: 18rem;">';
+                  echo '  <img src="fotos-projetos/'.$value['imagem'].'" style="height: 170px; width: 100%; margin: auto;" class="card-img-top" alt="Imagem projeto">';
+                  echo '  <div class="card-body">';
+                  echo '    <h5 class="card-title">'.$value['titulo'].'</h5>';
+                  echo '    <p class="card-text">'.$value['descricao'].'</p>';
+                  echo '  </div>';
+                  echo '  <ul class="list-group list-group-flush">';
+                  echo '    <li class="list-group-item">'.$value['linguagens'].'</li>';
+                  echo '  </ul>';
+                  echo '  <div class="card-body">';
+                  echo '    <a href="'.$value['link'].'"  target="_blank" class="btn btn-primary">Acesse aqui</a>';
+                  echo '  </div>';
+                  echo '</div>';
+              }
+
+
+              ?>
+
             </div>
         </div>
     </section>

@@ -1,3 +1,24 @@
+<?php
+session_start();
+
+if (isset($_SESSION['cadastro-concluido'])){
+    echo "<script>alert('".$_SESSION['cadastro-concluido']."');</script>";
+    unset($_SESSION['cadastro-concluido']);
+}
+if (isset($_SESSION['error'])){
+    echo "<script>alert('".$_SESSION['error']."')</script>";
+    unset($_SESSION['error']);
+}
+if (isset($_SESSION['success'])){
+    echo "<script>alert('".$_SESSION['success']."')</script>";
+    unset($_SESSION['success']);
+}
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -18,28 +39,27 @@
     <main>
 
         <div class="left">
-            <a href="index.html"><img src="assets/logo2.png" alt="logo NUPSI"></a>
+            <a href="index.php"><img src="assets/logo2.png" alt="logo NUPSI"></a>
         </div>
         <div class="right">
             <h1>Login</h1>
-            <form action="POST">
-
+            <form action="dao/valida-login.php" method="post">
                 <div class="mb-3">
                     <label for="email">Email </label>
                     <div class="input-area">
-                        <label for="email"><i class="fa-regular fa-envelope"></i></label>
-                        <input type="email" placeholder="Email" id="email" maxlength="254" required>
+                        <label for="Email"><i class="fa-regular fa-envelope"></i></label>
+                        <input type="email" placeholder="Email" id="Email" name="email" maxlength="254" required>
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="senha">Senha </label>
                     <div class="input-area">
-                        <label for="senha"><i class="fa-solid fa-lock"></i></label>
-                        <input type="password" placeholder="Password" maxlength="128" id="senha" required>
+                        <label for="Senha"><i class="fa-solid fa-lock"></i></label>
+                        <input type="password" placeholder="Password" maxlength="128" id="Senha" name="senha" required>
                     </div>
                 </div>
 
-                <button type="submit" name="cadastrar" class="btn">Entrar</button>
+                <button type="submit" name="entrar" class="btn">Entrar</button>
             </form>
             <p>Não tem uma conta? <a href="cadastro.html" class="btn-link">Cadastre-se agora!</a></p>
         </div>

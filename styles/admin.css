@@ -22,4 +22,25 @@ div header{
 
 main{
     margin-top: 100px;
+
+    & h3{
+        border-bottom: 1px solid black;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+}
+
+textarea{
+    resize: none;
+}
+
+.table-responsive{
+   & button{
+        margin: 5px 5px 5px 0px;
+        width: 90px;
+    }
+
+    & thead{
+        border-top: 1px solid rgba(114, 114, 114, 0.432);
+    }
 }

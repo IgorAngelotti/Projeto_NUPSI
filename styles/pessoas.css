@@ -43,7 +43,7 @@ main {
 }
 
 .participant-card {
-    background-color: #ffffff7f;
+    background-color: #ffffffcb;
     border: 1px solid white;
     box-shadow: 5px 5px 10px #ed0404;
     color:#001240;
@@ -57,6 +57,11 @@ main {
     backdrop-filter: blur(5px);
     box-shadow: 3px 3px 10px #343434;
     
+    & .text-card{
+        display: flex;
+        flex-direction: column;
+       align-items: center;
+    }
 
     & img{
         width: 270px;
@@ -66,6 +71,15 @@ main {
 
 .participant-card h2 {
     margin-top: 0;
+    font-size: 2.4rem;
+}
+
+.participant-card h3 {
+    font-size: 2rem;
+}
+
+.participant-card p, li {
+    font-size: 1.2rem;
 }
 
 .participant-card ul {

@@ -36,10 +36,13 @@ main{
 }
 
 
+.cards-container{
+    justify-content: center;
+}
+
 .card{
     padding: 0px;
-    margin: 0px auto;
-    margin-bottom: 30px;
+    margin: 0px;
 
     & .card-body{
 

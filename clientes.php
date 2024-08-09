@@ -1,3 +1,26 @@
+<?php
+    session_start();
+
+   
+
+   
+
+    if (!isset($_SESSION['usuario_id'] )){
+      header("Location: index.php");
+      exit();
+    }else if ($_SESSION['usuario_perfil'] != "cliente"){
+      header("Location: index.php");
+    }else{
+      $id =  $_SESSION['usuario_id'];
+      $nome =  $_SESSION['usuario_nome'];
+      $email =  $_SESSION['usuario_email'];
+      $perfil = $_SESSION['usuario_perfil'];
+    }
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -22,7 +45,7 @@
   <header id="header">
     <nav class="navbar navbar-expand-lg border-bottom border-body fixed-top" data-bs-theme="dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="index.html"><img src="assets/logoBranca.png" alt="logo nupsi"
+        <a class="navbar-brand" href="index.php"><img src="assets/logoBranca.png" alt="logo nupsi"
             id="logo-navbar"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
           aria-controls="navbarColor01" aria-expanded="true" aria-label="Toggle navigation">
@@ -31,27 +54,41 @@
         <div class="navbar-collapse collapse" id="navbarColor01">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" onclick="scrollToTop()" aria-current="page" href="index.html#">Home</a>
+              <a class="nav-link" onclick="scrollToTop()" aria-current="page" href="index.php#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html#sobre">Sobre</a>
+              <a class="nav-link" href="index.php#sobre">Sobre</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html#h3-projetos">Projetos</a>
+              <a class="nav-link" href="index.php#h3-projetos">Projetos</a>
             </li>
             <li class="nav-item dropdown">
               <a class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 O NUPSI
               </a>
               <ul class="dropdown-menu dropdown-menu-dark">
-                <li><a class="dropdown-item nav-link" href="index.html#h3-fundamentos">Fundamentos</a></li>
-                <li><a class="dropdown-item nav-link" href="index.html#h3-conheca">Conheça</a></li>
-                <li><a class="dropdown-item nav-link" href="index.html#h3-comunidade">Comunidade</a></li>
-                <li><a class="dropdown-item " href="admin_projetos.html">ADMIN</a></li>
-                <li><a class="dropdown-item " href="clientes.html">CLIENTES</a></li>
+                <li><a class="dropdown-item nav-link" href="index.php#h3-fundamentos">Fundamentos</a></li>
+                <li><a class="dropdown-item nav-link" href="index.php#h3-conheca">Conheça</a></li>
+                <li><a class="dropdown-item nav-link" href="index.php#h3-comunidade">Comunidade</a></li>
+                <hr>
+                <li><a class="dropdown-item " href="clientes.php">CLIENTES</a></li>
               </ul>
             </li>
           </ul>
+          <div class="d-flex" role="search">
+              <?php if ($perfil == ""): ?>
+                <a class="btn btn-outline-light mx-2 bg-primary" href="login.php">Login</a>
+                <a class="btn btn-outline-light bg-success" href="cadastro.html" >Cadastre-se</a>
+
+              <?php elseif ($perfil == "cliente"): ?>
+                <a class="btn btn-outline-light bg-success" href="clientes.php" >Acessar perfil</a>
+                <a class="btn btn-outline-light mx-2 bg-danger" href="dao/logout.php">Logout</a>
+
+              <?php elseif ($perfil == "admin"): ?>
+                <a class="btn btn-outline-light bg-success" href="admin_projetos.php" >Gerenciamento</a>
+                <a class="btn btn-outline-light mx-2 bg-danger" href="dao/logout.php">Logout</a>
+              <?php endif; ?>
+            </div>
         </div>
     </nav>
   </header>
@@ -61,17 +98,10 @@
       <h2>Dados do Cliente</h2>
       <div class="dados-cliente">
         <label for="nome">Nome:</label>
-        <input type="text" id="nome" value="João Silva" readonly>
+        <input type="text" id="nome" value="<?php echo"$nome"; ?>" readonly>
 
         <label for="email">Email:</label>
-        <input type="email" id="email" value="joao.silva@example.com" readonly>
-
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" value="123456" readonly>
-
-        <button id="exibir-senha" class="btn btn-primary">
-          <i class="fas fa-eye"></i> Exibir senha
-        </button>
+        <input type="email" id="email" value="<?php echo"$email"; ?>" readonly>
 
       </div>
     </div>
@@ -130,10 +160,6 @@
                 <label for="Nome" class="form-label">Nome</label>
                 <input type="text" class="form-control" id="Nome" name="nome" placeholder="Seu novo nome">
               </div>
-              <div class="mb-3">
-                <label for="Senha" class="form-label">Senha</label>
-                <input type="text" class="form-control" id="Senha" name="senha" placeholder="Nova senha">
-              </div>
             </div>
             <div class="mb-3">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -160,30 +186,12 @@
         const button = event.relatedTarget
 
         nome = document.getElementById('nome').value;
-        senha = document.getElementById('senha').value;
-
         document.getElementById('Nome').value = nome;
-        document.getElementById('Senha').value = senha;
-
-
-
-
         document.getElementById('Nome').focus();
       })
     }
 
-    const senhaInput = document.getElementById('senha');
-    const exibirSenhaButton = document.getElementById('exibir-senha');
-
-    exibirSenhaButton.addEventListener('click', () => {
-      if (senhaInput.type === 'password') {
-        senhaInput.type = 'text';
-        exibirSenhaButton.innerHTML = '<i class="fa-solid fa-eye-slash"></i> Ocultar senha';
-      } else {
-        senhaInput.type = 'password';
-        exibirSenhaButton.innerHTML = '<i class="fas fa-eye"></i> Exibir senha';
-      }
-    });
+    
   </script>
 </body>
 

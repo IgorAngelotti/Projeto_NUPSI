@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if (isset($_SESSION['usuario_perfil'])){
+  $perfil = $_SESSION['usuario_perfil'];
+}else{
+  $perfil = "";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -20,7 +30,7 @@
     <header id="header">
         <nav class="navbar navbar-expand-lg border-bottom border-body fixed-top" data-bs-theme="dark">
           <div class="container-fluid">
-            <a class="navbar-brand" href="index.html"><img src="assets/logoBranca.png" alt="logo nupsi"
+            <a class="navbar-brand" href="index.php"><img src="assets/logoBranca.png" alt="logo nupsi"
                 id="logo-navbar"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
               aria-controls="navbarColor01" aria-expanded="true" aria-label="Toggle navigation">
@@ -29,27 +39,41 @@
             <div class="navbar-collapse collapse" id="navbarColor01">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link" onclick="scrollToTop()" aria-current="page" href="index.html#">Home</a>
+                  <a class="nav-link" onclick="scrollToTop()" aria-current="page" href="index.php#">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="index.html#sobre">Sobre</a>
+                  <a class="nav-link" href="index.php#sobre">Sobre</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="index.html#h3-projetos">Projetos</a>
+                  <a class="nav-link" href="index.php#h3-projetos">Projetos</a>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                     O NUPSI
                   </a>
                   <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item nav-link" href="index.html#h3-fundamentos">Fundamentos</a></li>
-                    <li><a class="dropdown-item nav-link" href="index.html#h3-conheca">Conheça</a></li>
-                    <li><a class="dropdown-item nav-link" href="index.html#h3-comunidade">Comunidade</a></li>
+                    <li><a class="dropdown-item nav-link" href="index.php#h3-fundamentos">Fundamentos</a></li>
+                    <li><a class="dropdown-item nav-link" href="index.php#h3-conheca">Conheça</a></li>
+                    <li><a class="dropdown-item nav-link" href="index.php#h3-comunidade">Comunidade</a></li>
                     <li><a class="dropdown-item " href="admin_projetos.html">ADMIN</a></li>
                     <li><a class="dropdown-item " href="clientes.html">CLIENTES</a></li>
                   </ul>
                 </li>
               </ul>
+              <div class="d-flex" role="search">
+              <?php if ($perfil == ""): ?>
+                <a class="btn btn-outline-light mx-2 bg-primary" href="login.php">Login</a>
+                <a class="btn btn-outline-light bg-success" href="cadastro.html" >Cadastre-se</a>
+
+              <?php elseif ($perfil == "cliente"): ?>
+                <a class="btn btn-outline-light bg-success" href="clientes.php" >Acessar perfil</a>
+                <a class="btn btn-outline-light mx-2 bg-danger" href="dao/logout.php">Logout</a>
+
+              <?php elseif ($perfil == "admin"): ?>
+                <a class="btn btn-outline-light bg-success" href="admin_projetos.php" >Gerenciamento</a>
+                <a class="btn btn-outline-light mx-2 bg-danger" href="dao/logout.php">Logout</a>
+              <?php endif; ?>
+            </div>
             </div>
         </nav>
       </header>
@@ -60,7 +84,7 @@
         <div id="pessoas-container">
 
             <section class="participant-card">
-               <div>
+               <div class="text-card">
                     <h2>João Silva</h2>
                     <p>Idade: 25</p>
                     <p>Período de Participação: 2016-2018</p>
@@ -76,7 +100,7 @@
             </section>
 
             <section class="participant-card">
-                <div>
+                <div class="text-card">
                     <h2>Maria Oliveira</h2>
                     <p>Idade: 22</p>
                     <p>Período de Participação: 2023-2024</p>

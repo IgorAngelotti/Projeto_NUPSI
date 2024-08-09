@@ -1,3 +1,17 @@
+<?php
+    session_start();
+
+    if (!isset($_SESSION['usuario_id'] )){
+      header("Location: index.php");
+      exit();
+    }else if ($_SESSION['usuario_perfil'] != "admin"){
+      header("Location: index.php");
+    }else{
+      $perfil =  $_SESSION['usuario_nome'];
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,23 +37,19 @@
             </div>
             <div class="offcanvas-body">
               <div>
-                <span>Nome do ADM</span>
+                <span><i class="fa-solid fa-user"> </i> - <?php echo "$perfil"; ?></span>
               </div>
 
-              <div>
-                <span>Status do adm</span>
-              </div>
-              
               <hr>
 
               <div class="mt-3">
-                <a href="admin_projetos.html" class="btn btn-secondary" type="button">
+                <a href="admin_projetos.php" class="btn btn-secondary" type="button">
                   Gerenciar Projetos
                 </a>
               </div>
 
               <div class="mt-2">
-                <a href="admin_pessoas.html" class="btn btn-secondary" type="button">
+                <a href="admin_pessoas.php" class="btn btn-secondary" type="button">
                   Gerenciar Pessoas
                 </a>
               </div>
@@ -55,12 +65,12 @@
                 &#9776;
             </button>
 
-            <a href="index.html">
+            <a href="index.php">
                 <h2 class="m-0">NUPSI</h2>
             </a>
 
             <div>
-                <span>NOME DO ADMIN</span>
+                <a class="btn btn-outline-light mx-2 bg-danger" href="dao/logout.php">Logout</a>
             </div>
         </header>
         

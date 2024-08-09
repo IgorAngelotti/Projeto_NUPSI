@@ -15,34 +15,34 @@
     <main>
         
         <div class="left">
-            <a href="index.html"><img src="assets/logo2.png" alt="logo NUPSI"></a>
+            <a href="index.php"><img src="assets/logo2.png" alt="logo NUPSI"></a>
         </div>
         <div class="right">
             <h1>Cadastrar</h1>
-            <form action="POST">
+            <form action="dao/cadastro.php" method="post">
                 <div class="mb-3">
                     <label for="nome">Nome </label>
                     <div class="input-area">
-                        <label for="nome"><i class="fa-regular fa-circle-user"></i></label>
-                        <input type="text" placeholder="Username" id="nome" maxlength="50" required>
+                        <label for="Nome"><i class="fa-regular fa-circle-user"></i></label>
+                        <input type="text" placeholder="Username" id="Nome" name="nome" maxlength="50" required>
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="email">Email </label>
                     <div class="input-area">
-                        <label for="email"><i class="fa-regular fa-envelope"></i></label>
-                        <input type="email" placeholder="Email" id="email" maxlength="254" required>
+                        <label for="Email"><i class="fa-regular fa-envelope"></i></label>
+                        <input type="email" placeholder="Email" id="Email" name="email" maxlength="254" required>
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="senha">Senha </label>
                     <div class="input-area">
-                        <label for="senha"><i class="fa-solid fa-lock"></i></label>
-                        <input type="password" placeholder="Password" maxlength="128" id="senha" required>
+                        <label for="Senha"><i class="fa-solid fa-lock"></i></label>
+                        <input type="password" placeholder="Password" maxlength="128" id="Senha" name="senha" required>
                     </div>
                 </div>
             
-                  <button type="submit" name="cadastrar" class="btn">Cadastrar</button>
+                  <button type="submit" name="cadastrar" name="cadastrar" class="btn">Cadastrar</button>
             </form>
         </div>
     </main>
